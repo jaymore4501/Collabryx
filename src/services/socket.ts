@@ -20,7 +20,8 @@ class SocketService {
   connect() {
     if (this.socket?.connected) return
 
-    this.socket = io(window.location.origin, {
+    const socketUrl = (import.meta.env.VITE_API_URL || window.location.origin).replace(/\/$/, '')
+    this.socket = io(socketUrl, {
       transports: ['websocket', 'polling'],
       reconnection: true,
       reconnectionAttempts: 10,

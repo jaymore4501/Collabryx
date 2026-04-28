@@ -410,6 +410,9 @@ export default function CanvasArea({ boardId }: Props) {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        onTouchStart={(e) => handleMouseDown(e as any)}
+        onTouchMove={handleMouseMove}
+        onTouchEnd={handleMouseUp}
         onWheel={handleWheel}
       >
         <Layer>

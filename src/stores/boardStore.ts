@@ -7,6 +7,7 @@ import type {
   ActivityEvent,
   UserSession,
   BoardMetrics,
+  ChatMessage,
 } from '@/types'
 import { generateId } from '@/lib/utils'
 

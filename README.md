@@ -1,4 +1,4 @@
-# 🎨 Collabryx
+# <img src="./public/collabryx.svg" width="25" /> Collabryx
 
 Collabryx is a real-time, anonymous digital whiteboard built for teams who want to brainstorm and collaborate instantly. No logins, no friction—just create a board, share the link, and start drawing.
 

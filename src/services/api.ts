@@ -1,6 +1,6 @@
 import type { ApiResponse, CreateBoardResponse, Board, CanvasElement } from '@/types'
 
-const BASE_URL = '/api'
+const BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '') + '/api'
 
 async function request<T>(url: string, options?: RequestInit): Promise<ApiResponse<T>> {
   try {

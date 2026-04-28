@@ -1,0 +1,1037 @@
+Build a complete production-grade full-stack web application named **Collabryx**.
+
+# Product Identity
+
+Collabryx is an **anonymous real-time collaborative whiteboard + structured idea workspace**.
+
+It combines:
+
+* Figma → infinite visual canvas + drag/drop freedom
+* Notion → structured content blocks + text hierarchy
+* Miro → multiplayer collaboration + live cursors
+
+Core philosophy:
+
+Zero friction collaboration.
+
+No login.
+No signup.
+No onboarding.
+No workspace setup.
+
+Users should:
+
+* create board instantly
+* share link instantly
+* collaborate instantly
+
+Everything must feel:
+
+premium,
+alive,
+smooth,
+interactive,
+fast,
+minimal.
+
+The UI should feel comparable to:
+
+* Linear
+* Vercel dashboard
+* Notion dark mode
+
+---
+
+# Core Functional Requirement
+
+Build an anonymous collaboration system where:
+
+1. User clicks “Create Board”
+2. Board is instantly created
+3. Unique shareable board URL is generated
+4. User sends link to others
+5. Anyone with link joins instantly
+6. No authentication required
+7. All users edit together in real-time
+8. All changes sync instantly
+9. Cursors sync instantly
+10. Activity feed updates instantly
+
+Temporary Board Lifecycle:
+
+Important:
+
+Boards must be temporary.
+
+Lifecycle logic:
+
+* Board exists only while at least one participant is active.
+* When the last user closes tab/browser/leaves board:
+
+  * delete board document
+  * delete all elements
+  * delete all sessions
+  * invalidate board URL
+* If user revisits deleted link:
+  show:
+  “This collaboration session has expired.”
+
+Implement this with:
+
+Socket disconnect detection
+Last active participant detection
+Auto cleanup worker
+
+Board expiration conditions:
+
+Condition 1:
+All users disconnected
+
+Condition 2:
+No heartbeat for 2 minutes
+
+Condition 3:
+Window/tab closed
+
+---
+
+# Tech Stack
+
+Frontend:
+
+* React
+* Vite
+* TypeScript
+* TailwindCSS
+* shadcn/ui
+* Framer Motion
+
+Backend:
+
+* Node.js
+* Express.js
+* Socket.io
+
+Database:
+
+* MongoDB Atlas
+
+Canvas Engine:
+
+Use:
+
+Konva.js
+
+Reason:
+
+Better interaction handling
+Better drag/drop
+Better layer system
+Better object management
+
+State Management:
+
+Use:
+
+Zustand
+
+Reason:
+
+lightweight
+fast
+clean
+
+---
+
+# Required UI Libraries (Install + Use)
+
+Install exactly these:
+
+1. Shiny Text Effect
+
+npx shadcn@latest add @react-bits/ShinyText-JS-CSS
+
+Use for:
+
+* hero title
+* board title
+* dashboard title
+
+Purpose:
+
+premium animated typography
+
+---
+
+2. Border Glow Effect
+
+npx shadcn@latest add @react-bits/BorderGlow-JS-CSS
+
+Use for:
+
+* CTA buttons
+* cards
+* tool buttons
+
+Purpose:
+
+premium hover interaction
+
+---
+
+3. Dot Grid Background
+
+npx shadcn@latest add @react-bits/DotGrid-JS-CSS
+
+Use for:
+
+* landing page background
+* empty board background
+
+Purpose:
+
+modern visual depth
+
+---
+
+4. Metrics Component
+
+pnpm dlx shadcn@latest add @shadcncraft/metrics-1
+
+Use for:
+
+* active users
+* total edits
+* live activity count
+
+Purpose:
+
+real-time analytics panel
+
+---
+
+5. Activity Feed Component
+
+pnpm dlx shadcn@latest add @shadcncraft/activity-feed-1
+
+Use for:
+
+live board events
+
+Examples:
+
+User added shape
+User moved note
+User edited text
+
+Purpose:
+
+collaboration transparency
+
+---
+
+# Design System
+
+Build premium SaaS quality UI.
+
+NOT beginner UI.
+
+Requirements:
+
+Spacing:
+
+Use consistent spacing scale
+
+rounded-xl minimum
+
+Cards:
+
+glassmorphism
+subtle shadows
+
+Buttons:
+
+hover lift
+glow interaction
+
+Transitions:
+
+400ms
+
+Panel animations:
+
+slide + fade
+
+Canvas interactions:
+
+smooth zoom
+smooth drag
+
+Loading states:
+
+skeletons
+
+Empty states:
+
+illustrated
+
+Responsive:
+
+desktop first
+tablet supported
+
+Mobile:
+
+view-only mode
+
+---
+
+# Theme Engine
+
+Modes:
+
+Light
+Dark
+System
+
+Store preference in localStorage.
+
+Theme transition:
+
+400ms ease
+
+Light Theme:
+
+Background:
+#F8FAFC
+
+Card:
+#FFFFFF
+
+Accent:
+#6366F1
+
+Text:
+#0F172A
+
+Dark Theme:
+
+Background:
+#0B0F19
+
+Card:
+#111827
+
+Accent:
+#6366F1
+
+Text:
+#E5E7EB
+
+Theme Toggle Location:
+
+top-right navbar
+
+Smooth animated switch.
+
+---
+
+# Full Application Structure
+
+Routes:
+
+/
+
+Landing page
+
+/dashboard
+
+Board dashboard
+
+/board/:id
+
+Workspace
+
+/session-expired
+
+Expired board page
+
+---
+
+# Landing Page Detailed Requirements
+
+Hero section:
+
+Use ShinyText:
+
+Collabryx
+
+Subtitle:
+
+Collaborate instantly. No login. No limits.
+
+CTA:
+
+Create Board
+
+Secondary CTA:
+
+Join Existing Board
+
+Background:
+
+DotGrid animated
+
+Sections:
+
+1. Hero
+2. Features
+3. Real-time collaboration demo preview
+4. How it works
+5. FAQ
+6. Footer
+
+Animations:
+
+Framer Motion:
+
+fade-up
+staggered reveal
+hover interactions
+
+Navbar:
+
+Logo
+Theme toggle
+Create board button
+
+---
+
+# Dashboard Detailed Requirements
+
+Purpose:
+
+Entry point after landing page.
+
+Features:
+
+Recent boards
+
+Join board via link
+
+Create board
+
+Board Cards:
+
+Use BorderGlow
+
+Display:
+
+Board title
+Created time
+Users active
+
+Actions:
+
+Open
+Copy link
+Delete manually
+
+Search:
+
+Find board by ID
+
+Empty State:
+
+DotGrid background
+
+---
+
+# Board Workspace Detailed Layout
+
+3-column layout.
+
+LEFT SIDEBAR (Toolbox)
+
+Width:
+80px
+
+Tools:
+
+Pen
+Rectangle
+Circle
+Line
+Arrow
+Sticky Note
+Text
+Eraser
+Select Tool
+
+Behavior:
+
+hover glow
+tooltip
+active state
+
+---
+
+CENTER CANVAS
+
+Infinite whiteboard.
+
+Features:
+
+Pan
+Zoom
+Drag
+Resize
+Rotate
+Layering
+Selection box
+
+Object types:
+
+Text
+Shape
+Line
+Sticky note
+
+Canvas behaviors:
+
+snap to grid
+multi-select
+delete selected
+duplicate selected
+
+Keyboard shortcuts:
+
+Delete
+Ctrl+C
+Ctrl+V
+Ctrl+Z
+Ctrl+Y
+
+---
+
+RIGHT SIDEBAR
+
+Section 1:
+
+Live Activity Feed
+
+Use activity-feed component.
+
+Section 2:
+
+Metrics Panel
+
+Use metrics component.
+
+Metrics:
+
+Active users
+Total elements
+Edits per second
+Session duration
+
+Section 3:
+
+Board Settings
+
+Export JSON
+Export PNG
+Clear board
+Reset session
+
+---
+
+# Real-Time Collaboration Layer
+
+Use Socket.io.
+
+Implement rooms.
+
+Every board = socket room.
+
+Anonymous User Generation:
+
+Generate:
+
+username:
+Anonymous + random number
+
+color:
+random hex color
+
+cursor:
+same color
+
+Realtime features:
+
+Cursor sync
+Element sync
+Selection sync
+Delete sync
+
+Presence:
+
+Show active users avatars
+
+Heartbeat:
+
+Every 10 seconds
+
+Track disconnects.
+
+Cleanup logic:
+
+If room empty:
+
+Delete everything.
+
+---
+
+# Backend Architecture
+
+Folder structure:
+
+server/
+
+src/
+
+controllers/
+
+routes/
+
+models/
+
+socket/
+
+services/
+
+middlewares/
+
+utils/
+
+jobs/
+
+config/
+
+Responsibilities:
+
+Controllers:
+
+business logic
+
+Routes:
+
+API routing
+
+Socket:
+
+realtime events
+
+Jobs:
+
+cleanup workers
+
+Services:
+
+DB abstraction
+
+---
+
+# Database Models
+
+Board Model:
+
+title
+roomId
+createdAt
+updatedAt
+
+Element Model:
+
+boardId
+type
+payload
+createdAt
+updatedAt
+
+Session Model:
+
+sessionId
+boardId
+username
+color
+lastHeartbeat
+
+---
+
+# Temporary Database Rules
+
+Important:
+
+No permanent storage.
+
+All boards are session-based.
+
+Deletion Rules:
+
+1.
+
+Last user disconnects
+
+Delete:
+
+board
+elements
+sessions
+
+2.
+
+No heartbeat in 2 minutes
+
+Delete:
+
+board
+elements
+sessions
+
+3.
+
+Tab close event
+
+Emit leave event
+
+Delete if empty
+
+Board links must become invalid after deletion.
+
+Must return 404 for expired board IDs.
+
+---
+
+# REST APIs
+
+POST /api/board/create
+
+Create new board
+
+Response:
+
+boardId
+shareUrl
+
+---
+
+GET /api/board/:id
+
+Fetch board state
+
+---
+
+POST /api/board/save
+
+Save temporary state
+
+---
+
+DELETE /api/board/:id
+
+Delete board
+
+---
+
+GET /api/board/:id/export/json
+
+Export board JSON
+
+---
+
+GET /api/board/:id/export/png
+
+Export canvas image
+
+---
+
+# WebSocket Events
+
+JOIN_BOARD
+
+payload:
+
+boardId
+
+---
+
+LEAVE_BOARD
+
+payload:
+
+boardId
+
+---
+
+CURSOR_MOVE
+
+payload:
+
+x
+y
+
+---
+
+ADD_ELEMENT
+
+payload:
+
+element
+
+---
+
+UPDATE_ELEMENT
+
+payload:
+
+elementId
+changes
+
+---
+
+DELETE_ELEMENT
+
+payload:
+
+elementId
+
+---
+
+CLEAR_BOARD
+
+payload:
+
+boardId
+
+---
+
+ACTIVITY_EVENT
+
+payload:
+
+message
+
+---
+
+HEARTBEAT
+
+payload:
+
+sessionId
+
+---
+
+# Project Phases (Follow Exactly)
+
+PHASE 1 — Foundation Setup
+
+Goal:
+
+Project initialization.
+
+Tasks:
+
+Initialize frontend
+Initialize backend
+Configure TypeScript
+Setup Tailwind
+Setup shadcn/ui
+Install all required UI packages
+Setup theme engine
+Create routing
+Create layout system
+
+Deliverables:
+
+working landing page
+theme switcher
+routing system
+
+---
+
+PHASE 2 — UI System Build
+
+Goal:
+
+Complete premium UI shell.
+
+Tasks:
+
+Build navbar
+Build landing sections
+Build dashboard
+Build board card system
+Build empty states
+Build loading skeletons
+
+Deliverables:
+
+full UI shell
+
+---
+
+PHASE 3 — Canvas Engine
+
+Goal:
+
+Interactive board.
+
+Tasks:
+
+Install Konva
+Create stage
+Create layers
+Add drawing tools
+Add text blocks
+Add sticky notes
+Add drag
+Add resize
+Add selection
+
+Deliverables:
+
+fully interactive whiteboard
+
+---
+
+PHASE 4 — Real-Time Sync
+
+Goal:
+
+Multiplayer collaboration.
+
+Tasks:
+
+Setup Socket.io
+Create rooms
+Sync elements
+Sync cursor movement
+Sync presence
+Sync activity feed
+
+Deliverables:
+
+multiplayer board
+
+---
+
+PHASE 5 — Temporary Session System
+
+Goal:
+
+Auto-expiring board lifecycle.
+
+Tasks:
+
+Track active users
+Track disconnects
+Implement heartbeat
+Auto-delete inactive boards
+Invalidate links
+
+Deliverables:
+
+temporary board sessions
+
+---
+
+PHASE 6 — Export System
+
+Goal:
+
+Board export.
+
+Tasks:
+
+JSON export
+PNG export
+
+Deliverables:
+
+downloadable board data
+
+---
+
+PHASE 7 — Premium Polish
+
+Goal:
+
+Production polish.
+
+Tasks:
+
+Animations
+Performance optimization
+Optimistic updates
+Smooth transitions
+Error handling
+Reconnect logic
+Skeletons
+Toasts
+
+Deliverables:
+
+premium SaaS experience
+
+---
+
+# Code Quality Rules
+
+Use:
+
+TypeScript
+
+Use:
+
+clean architecture
+
+Use:
+
+reusable components
+
+Use:
+
+custom hooks
+
+Use:
+
+socket abstraction
+
+Use:
+
+API abstraction
+
+Use:
+
+strict typing
+
+Use:
+
+modular code
+
+Generate:
+
+complete frontend
+complete backend
+complete database models
+complete websocket layer
+complete cleanup system
+
+Final result must feel like:
+
+Notion +
+Figma +
+Miro
+
+with anonymous instant multiplayer collaboration and temporary live session architecture.

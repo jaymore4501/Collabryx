@@ -1,0 +1,25 @@
+# ⚖️ License Agreement for Collabryx
+
+Copyright (c) 2026 Collabryx Project
+
+## 1. Educational Use Only
+This project, **Collabryx**, is provided strictly for **educational and demonstration purposes**. It was developed as a custom-made technical showcase of real-time collaborative technologies (React, Node.js, WebSockets, and MongoDB).
+
+## 2. Restrictions
+By accessing or using this codebase, you agree to the following terms:
+
+*   **Non-Commercial Use**: You may not use this project, its code, its assets, or its architecture for any commercial purposes, business activities, or profit-generating ventures.
+*   **No Redistribution**: You may not redistribute, re-license, or sell this software, either in its original form or in a modified state, without explicit written permission from the original developer.
+*   **Personal Use Limitation**: This project is intended as a learning reference. It is not intended for deployment as a public service for personal or production use beyond a local educational environment.
+
+## 3. Intellectual Property
+All rights, title, and interest in and to the Software (including but not limited to any code, designs, images, and documentation) are and will remain the exclusive property of the original developer.
+
+## 4. No Warranty
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## 5. Contact
+If you wish to use this project for any purpose outside the scope of this license, please contact the project owner directly.
+
+---
+*Failure to comply with these terms may result in a violation of intellectual property rights.*

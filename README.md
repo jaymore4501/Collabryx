@@ -119,6 +119,8 @@ Open `http://localhost:5173` and you're ready to go!
 
 ## 🌐 Deployment
 
+For a comprehensive, step-by-step guide on how to host Collabryx in the cloud, please refer to our **[Detailed Deployment Guide](./Deployment.md)**.
+
 ### Backend (Render)
 1. Push your code to GitHub.
 2. Create a new "Web Service" on Render.

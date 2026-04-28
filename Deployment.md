@@ -94,24 +94,33 @@ Before deploying, your code needs to be on GitHub.
 5.  **Environment Variables**:
     - `PORT`: `10000`
     - `MONGO_URI`: (Your Atlas connection string)
-    - `CLIENT_URL`: (Wait for your Vercel URL below)
+    - `CLIENT_URL`: (Wait for your Frontend URL below)
 
-### 3. Host Frontend on Vercel
-1.  Login to [Vercel.com](https://vercel.com/).
-2.  Click **Add New** -> **Project** and import your GitHub repo.
-3.  **Environment Variables**:
-    - `VITE_API_URL`: (Paste your Render URL here)
-4.  Click **Deploy**.
+### 3. Host Frontend on Render
+1.  On [Render.com](https://render.com/), click **New +** -> **Static Site**.
+2.  Connect the same GitHub repository.
+3.  **Configure**:
+    - **Name**: `collabryx-frontend`
+    - **Build Command**: `npm run build`
+    - **Publish Directory**: `dist`
+4.  **Environment Variables**:
+    - `VITE_API_URL`: (Paste your Render Backend URL here)
+5.  **Fix "Not Found" Errors (Crucial)**:
+    - In the left sidebar, click **Redirects and Rewrites**.
+    - Click **Add Rule**.
+    - Set Source to `/*`, Destination to `/index.html`, and Action to `Rewrite`.
+    - Click **Save Changes**.
+6.  Click **Deploy**.
 
 ### 4. Final Connection
-1.  Copy your new **Vercel URL** (e.g., `https://collabryx.vercel.app`).
-2.  Go back to **Render** -> **Environment Variables** and update `CLIENT_URL` with this Vercel link.
+1.  Copy your new **Frontend URL** (e.g., `https://collabryx-frontend.onrender.com`).
+2.  Go back to **Render Backend** -> **Environment Variables** and update `CLIENT_URL` with this Frontend link.
 3.  Save and wait for the backend to redeploy.
 
 ---
 
 ## ✅ Testing the Deployment
-1.  Visit your **Vercel URL**.
+1.  Visit your **Frontend URL**.
 2.  Create a new board.
 3.  Share the link with a friend.
 4.  Draw something—if it appears on both screens, you've successfully deployed Collabryx! 🎉

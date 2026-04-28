@@ -6,6 +6,12 @@ Whether you're sketching out a quick idea, building a flowchart, or just chattin
 
 ---
 
+## 🔗 Live Test
+**Website is Live! Test here and enjoy:**
+👉 [**https://collabryx-frontend.onrender.com**](https://collabryx-frontend.onrender.com)
+
+---
+
 ## 📸 Preview
 
 ### Light Theme
@@ -121,10 +127,17 @@ Open `http://localhost:5173` and you're ready to go!
 5. Start command: `node src/index.js`.
 6. Add your `.env` variables in the settings.
 
-### Frontend (Vercel)
-1. Import your repo to Vercel.
-2. Add an environment variable: `VITE_API_URL` pointing to your Render URL.
-3. Click Deploy!
+### Frontend (Render)
+1. Create a new **Static Site** on Render.
+2. Select your GitHub repository.
+3. **Settings**:
+   - Build Command: `npm run build`
+   - Publish Directory: `dist`
+4. **Environment Variable**: Add `VITE_API_URL` pointing to your Render backend URL.
+5. **CRITICAL (Fix 404s)**: 
+   - Go to **Redirects/Rewrites** in the Render sidebar.
+   - Add: Source: `/*`, Destination: `/index.html`, Action: `Rewrite`.
+6. Click Deploy!
 
 ---
 

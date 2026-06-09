@@ -1,3 +1,18 @@
+<p align="center">
+    
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Version](https://img.shields.io/badge/Version-v1.0.0-blue)
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-orange)
+![Made With](https://img.shields.io/badge/Made%20With-WebSockets-purple)
+![Realtime](https://img.shields.io/badge/Realtime-Collaboration-ff69b4)
+![Anonymous](https://img.shields.io/badge/Anonymous-No%20Login-blueviolet)
+![Open Source](https://img.shields.io/badge/Open%20Source-Yes-success)
+
+</p>
+
+
+
 # <img src="./public/collabryx.svg" width="25" /> Collabryx
 
 Collabryx is a real-time, anonymous digital whiteboard built for teams who want to brainstorm and collaborate instantly. No logins, no friction—just create a board, share the link, and start drawing.

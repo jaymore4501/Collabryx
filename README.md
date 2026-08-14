@@ -1,3 +1,11 @@
+
+<div align="center">
+
+<img src="./public/collabryx.svg" width="72" alt="Collabryx Logo" />
+
+Collabryx
+Real-time. Anonymous. Collaborative.
+
 <p align="center">
     
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
@@ -8,14 +16,18 @@
 ![Realtime](https://img.shields.io/badge/Realtime-Collaboration-ff69b4)
 ![Anonymous](https://img.shields.io/badge/Anonymous-No%20Login-blueviolet)
 ![Open Source](https://img.shields.io/badge/Open%20Source-Yes-success)
+<img src="https://img.shields.io/badge/WebSockets-Realtime-8b5cf6?style=flat-square" alt="WebSockets" />
+<img src="https://img.shields.io/badge/Contributions-Welcome-f59e0b?style=flat-square" alt="Contributions Welcome" />
 
 </p>
 
 
 
+</div>
+
 # <img src="./public/collabryx.svg" width="25" /> Collabryx
 
-Collabryx is a real-time, anonymous digital whiteboard built for teams who want to brainstorm and collaborate instantly. No logins, no friction—just create a board, share the link, and start drawing.
+Collabryx is a real-time, anonymous digital whiteboard built for teams who want to brainstorm and collaborate instantly. No logins, no friction just create a board, share the link, and start drawing.
 
 Whether you're sketching out a quick idea, building a flowchart, or just chatting with teammates on a shared canvas, Collabryx keeps everything in sync across everyone's screen with zero lag.
 
